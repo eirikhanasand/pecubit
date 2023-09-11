@@ -11,13 +11,43 @@ export default function Games(): JSX.Element {
     return (
         <Card title="GAMES">
             <View style={GameStyles.viewTwo}>
-                <Text style={{...GameStyles.textTwo, color: theme.contrast, backgroundColor: theme.green}}>LOTTERY</Text>
-                <Text style={{...GameStyles.textTwo, color: theme.contrast, backgroundColor: theme.green}}>SPORT</Text>
+                <Text style={{
+                    ...GameStyles.textTwo, 
+                    color: theme.contrast, 
+                    backgroundColor: theme.green
+                }}>
+                    LOTTERY
+                </Text>
+                <Text style={{
+                    ...GameStyles.textTwo, 
+                    color: theme.contrast, 
+                    backgroundColor: theme.green
+                }}>
+                    SPORT
+                </Text>
             </View>
             <View style={GameStyles.viewThree}>
-                <Text style={{...GameStyles.textThree, color: theme.contrast, backgroundColor: theme.green}}>FLAX</Text>
-                <Text style={{...GameStyles.textThree, color: theme.contrast, backgroundColor: theme.green}}>GAMBLING</Text>
-                <Text style={{...GameStyles.textThree, color: theme.contrast, backgroundColor: theme.green}}>ALL GAMES</Text>
+                <Text style={{
+                    ...GameStyles.textThree, 
+                    color: theme.contrast, 
+                    backgroundColor: theme.green
+                }}>
+                    FLAX
+                </Text>
+                <Text style={{
+                    ...GameStyles.textThree, 
+                    color: theme.contrast, 
+                    backgroundColor: theme.green
+                }}>
+                    GAMBLING
+                </Text>
+                <Text style={{
+                    ...GameStyles.textThree, 
+                    color: theme.contrast, 
+                    backgroundColor: theme.green
+                }}>
+                    ALL GAMES
+                </Text>
             </View>
         </Card>
     )

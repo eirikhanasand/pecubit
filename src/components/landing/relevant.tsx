@@ -14,8 +14,13 @@ export default function Relevant(): JSX.Element {
 
     return (
         <View style={RelevantStyles.content}>
-            <Text style={{...RelevantStyles.title, color: theme.contrast}}>RELEVANT</Text>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <Text style={{...RelevantStyles.title, color: theme.contrast}}>
+                RELEVANT
+            </Text>
+            <ScrollView 
+                horizontal={true} 
+                showsHorizontalScrollIndicator={false}
+            >
                 <View style={RelevantStyles.imageView}>
                     <Text style={RelevantStyles.imageText}>SPORTS</Text>
                     <Text style={RelevantStyles.imageTextOpacity} />
@@ -24,7 +29,10 @@ export default function Relevant(): JSX.Element {
                 <View style={RelevantStyles.imageView}>
                     <Text style={RelevantStyles.imageText}>GAMBLING</Text>
                     <Text style={RelevantStyles.imageTextOpacity} />
-                    <Image style={RelevantStyles.image} source={images.gambling}/>
+                    <Image 
+                        style={RelevantStyles.image} 
+                        source={images.gambling}
+                    />
                 </View>
             </ScrollView>
         </View>

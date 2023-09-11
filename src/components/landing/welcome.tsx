@@ -9,8 +9,20 @@ export default function Welcome() {
 
     return(
         <View style={WelcomeStyles.viewTwo}>
-            <Text style={{...WelcomeStyles.textTwo, color: theme.contrast, backgroundColor: theme.green}}>SIGN UP</Text>
-            <Text style={{...WelcomeStyles.textTwo, color: theme.contrast, backgroundColor: theme.green}}>LOGIN</Text>
+            <Text style={{
+                ...WelcomeStyles.textTwo, 
+                color: theme.contrast, 
+                backgroundColor: theme.green
+            }}>
+                SIGN UP
+            </Text>
+            <Text style={{
+                ...WelcomeStyles.textTwo, 
+                color: theme.contrast, 
+                backgroundColor: theme.green
+            }}>
+                LOGIN
+            </Text>
         </View>
     )
 }
