@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
 export const WelcomeStyles = StyleSheet.create({
     viewTwo: {
@@ -18,4 +18,4 @@ export const WelcomeStyles = StyleSheet.create({
         overflow: "hidden",
         fontWeight: "600",
     },
-});
+})

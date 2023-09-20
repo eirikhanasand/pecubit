@@ -4,7 +4,7 @@ import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 
 export default function LandingHeader(): JSX.Element {
-    const isDark = useColorScheme() === 'dark';
+    const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
     const logo = require("@assets/18.png")
 

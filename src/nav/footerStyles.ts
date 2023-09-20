@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
 export const FooterStyles = StyleSheet.create({
     content: { // Background of the footer
@@ -17,4 +17,4 @@ export const FooterStyles = StyleSheet.create({
         bottom: 8
     },
     
-});
+})

@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
 export const GameStyles = StyleSheet.create({
     viewTwo: {
@@ -32,4 +32,4 @@ export const GameStyles = StyleSheet.create({
         overflow: "hidden",
         fontWeight: "700",
     }
-});
+})

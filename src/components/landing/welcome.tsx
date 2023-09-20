@@ -1,10 +1,10 @@
-import { Text, View, useColorScheme } from "react-native";
-import { WelcomeStyles } from "./welcomeStyles";
+import { Text, View, useColorScheme } from "react-native"
+import { WelcomeStyles } from "./welcomeStyles"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 
 export default function Welcome() {
-    const isDark = useColorScheme() === 'dark';
+    const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
 
     return(

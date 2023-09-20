@@ -4,7 +4,7 @@ import DarkTheme from '@themes/darkTheme.json'
 import { FooterStyles } from './footerStyles'
 
 export default function Footer(): JSX.Element {
-    const isDark = useColorScheme() === 'dark';
+    const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
     const icons = {
         home:  require("@assets/house.png"),

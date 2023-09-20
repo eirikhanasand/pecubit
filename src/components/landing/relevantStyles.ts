@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions } from "react-native"
 
 export const RelevantStyles = StyleSheet.create({
     image: { // Relevant images
@@ -47,4 +47,4 @@ export const RelevantStyles = StyleSheet.create({
         overflow: "hidden",
         left: 10,
     },
-});
+})

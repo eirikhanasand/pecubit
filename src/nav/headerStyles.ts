@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
 export const HeaderStyles = StyleSheet.create({
     menu: { // Menu icon in header
@@ -25,4 +25,4 @@ export const HeaderStyles = StyleSheet.create({
         flexDirection: "row", 
         justifyContent: "space-between",
     }
-});
+})

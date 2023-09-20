@@ -1,4 +1,4 @@
-import LandingScreen from "@screens/landing/landing";
+import LandingScreen from "@screens/landing/landing"
 
 /**
  * Main entry point of the application
@@ -11,4 +11,4 @@ function App(): JSX.Element {
     return LandingScreen()
 }
 
-export default App;
+export default App

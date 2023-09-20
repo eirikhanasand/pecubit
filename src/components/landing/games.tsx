@@ -5,7 +5,7 @@ import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 
 export default function Games(): JSX.Element {
-    const isDark = useColorScheme() === 'dark';
+    const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
     
     return (

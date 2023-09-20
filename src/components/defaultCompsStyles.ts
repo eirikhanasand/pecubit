@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
 export const DefaultStyles = StyleSheet.create({
     sectionTitle: {
@@ -16,4 +16,4 @@ export const DefaultStyles = StyleSheet.create({
         margin: 12,
         marginTop: 6
     }
-});
+})

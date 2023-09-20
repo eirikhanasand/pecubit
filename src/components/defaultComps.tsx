@@ -1,22 +1,22 @@
-import { StatusBar, Text, useColorScheme, View } from 'react-native';
-import { DefaultStyles } from '@components/defaultCompsStyles';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { StatusBar, Text, useColorScheme, View } from 'react-native'
+import { DefaultStyles } from '@components/defaultCompsStyles'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 import LightTheme from '@themes/lightTheme.json'
 import type { PropsWithChildren } from 'react'
 import DarkTheme from '@themes/darkTheme.json'
-import React from 'react';
+import React from 'react'
 
 type SectionProps = PropsWithChildren<{
-    title: string;
-}>;
+    title: string
+}>
 
 type CardProps = PropsWithChildren<{
-    color?: string;
-    title?: string;
-}>;
+    color?: string
+    title?: string
+}>
 
 export default function CustomStatusBar(): JSX.Element {
-    const isDark = useColorScheme() === 'dark';
+    const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
 
     return (
@@ -34,7 +34,7 @@ export default function CustomStatusBar(): JSX.Element {
  * @returns Styled outline
  */
 export function Card({children, color, title}: CardProps): JSX.Element {
-    const isDark = useColorScheme() === 'dark';
+    const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
 
     return(
@@ -53,7 +53,7 @@ export function Card({children, color, title}: CardProps): JSX.Element {
 }
 
 export function Section({children, title}: SectionProps): JSX.Element {
-    const isDark = useColorScheme() === 'dark';
+    const isDark = useColorScheme() === 'dark'
 
     return (
         <Card>
@@ -76,5 +76,5 @@ export function Section({children, title}: SectionProps): JSX.Element {
                 {children}
             </Text>
         </Card>
-    );
+    )
 }
