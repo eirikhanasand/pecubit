@@ -10,10 +10,13 @@ import Games from '@components/landing/games'
 import en from "@text/landing.json"
 import Header from '@nav/header'
 import Footer from '@nav/footer'
+import { useState } from 'react'
 
 export default function LandingScreen(): JSX.Element {
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
+    const [name, setName] = useState("")
+    const [login, setLogin] = useState(false)
 
     return (
         <SafeAreaView style={{
@@ -21,9 +24,9 @@ export default function LandingScreen(): JSX.Element {
                 backgroundColor: theme.content
             }}>
             <CustomStatusBar />
-            <Header />
+            <Header name={name} login={login}/>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Welcome />
+                <Welcome setName={setName} login={login} setLogin={setLogin} />
                 <Section title="PLAY">
                     <Text style={{color: theme.contrast}}>{en.play}</Text>
                 </Section>

@@ -3,10 +3,16 @@ import { HeaderStyles } from "@nav/headerStyles"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 
-export default function LandingHeader(): JSX.Element {
+type LandingHeaderProps = {
+    name: string
+    login: boolean
+}
+
+export default function LandingHeader({name, login}: LandingHeaderProps): JSX.Element {
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
-    const logo = require("@assets/18.png")
+    const ageLimit = require("@assets/18.png")
+    const logo = require("@assets/pecubitnbg.png")
 
     return (
         <View style={{
@@ -14,10 +20,23 @@ export default function LandingHeader(): JSX.Element {
                 backgroundColor: theme.darker
             }}>
             <View style={HeaderStyles.headerRow}>
-                <Text style={{ ...HeaderStyles.logo, color: theme.contrast }}>
-                    Pecubit
-                </Text>
-                <Image style={HeaderStyles.menu} source={logo} />
+                {!name.length || !login
+                    ? <>
+                        <Text style={{ ...HeaderStyles.logo, color: theme.contrast }}>
+                            Pecubit
+                        </Text>
+                        <Image style={HeaderStyles.menu} source={ageLimit} />
+                    </>
+                    : <>
+                        <View style={{flexDirection: "row"}}>
+                            <Image style={HeaderStyles.menuIcon} source={logo} />
+                            <Text style={{ ...HeaderStyles.logoWithItems, color: theme.contrast }}>
+                                Welcome, {name}!
+                            </Text>
+                        </View>
+                        <Image style={HeaderStyles.menuWithItems} source={ageLimit} />
+                    </>
+                }
             </View>
         </View>
     )

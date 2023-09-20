@@ -13,7 +13,7 @@ export const FooterStyles = StyleSheet.create({
     },
     // Menu icon in footer
     menu: {
-        width: 28,
+        width: 22,
         aspectRatio: 1/1.25,
         alignSelf: 'center',
         bottom: 8

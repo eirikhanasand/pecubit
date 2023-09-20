@@ -8,11 +8,30 @@ export const HeaderStyles = StyleSheet.create({
         alignSelf: 'center',
         left: -20
     },
+    menuWithItems: {
+        width: 35,
+        aspectRatio: 1/1,
+        alignSelf: 'center',
+        left: -20,
+    },
+    menuIcon: {
+        width: 30,
+        aspectRatio: 1/1,
+        alignSelf: 'center',
+        left: 10,
+        top: -2
+    },
     // Text logo in header
     logo: {
         fontSize: 28,
         fontWeight: "700",
         marginLeft: "4%",
+        justifyContent: 'center'
+    },
+    logoWithItems: {
+        fontSize: 28,
+        fontWeight: "700",
+        marginLeft: "6%",
         justifyContent: 'center'
     },
     // Background of header

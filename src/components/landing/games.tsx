@@ -4,51 +4,55 @@ import { Card } from "@components/defaultComps"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 
+type GamesProps = {
+    titles: string[]
+    theme: ThemeProps
+}
+
 export default function Games(): JSX.Element {
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
     
     return (
         <Card title="GAMES">
-            <View style={GameStyles.viewTwo}>
-                <Text style={{
-                    ...GameStyles.textTwo, 
-                    color: theme.contrast, 
-                    backgroundColor: theme.green
-                }}>
-                    LOTTERY
-                </Text>
-                <Text style={{
-                    ...GameStyles.textTwo, 
-                    color: theme.contrast, 
-                    backgroundColor: theme.green
-                }}>
-                    SPORT
-                </Text>
-            </View>
-            <View style={GameStyles.viewThree}>
-                <Text style={{
-                    ...GameStyles.textThree, 
-                    color: theme.contrast, 
-                    backgroundColor: theme.green
-                }}>
-                    FLAX
-                </Text>
-                <Text style={{
-                    ...GameStyles.textThree, 
-                    color: theme.contrast, 
-                    backgroundColor: theme.green
-                }}>
-                    GAMBLING
-                </Text>
-                <Text style={{
-                    ...GameStyles.textThree, 
-                    color: theme.contrast, 
-                    backgroundColor: theme.green
-                }}>
-                    ALL GAMES
-                </Text>
-            </View>
+            <GameContent titles={["LOTTERY", "SPORT"]} theme={theme} />
+            <GameContent titles={["FLAX", "GAMBLING", "ALL GAMES"]} theme={theme} />
         </Card>
     )
+}
+
+function GameContent({theme, titles}: GamesProps): JSX.Element {
+    if (titles.length === 3) {
+        return (
+            <View style={GameStyles.viewThree}>
+                {titles.map((title) => {
+                    return (
+                        <Text key={title} style={{
+                            ...GameStyles.textThree, 
+                            color: theme.contrast, 
+                            backgroundColor: theme.green
+                        }}>
+                            {title}
+                        </Text>
+                    )
+                })}
+            </View>
+        )
+    } else {
+        return (
+            <View style={GameStyles.viewTwo}>
+                {titles.map((title) => {
+                    return (
+                        <Text key={title} style={{
+                            ...GameStyles.textTwo, 
+                            color: theme.contrast, 
+                            backgroundColor: theme.green
+                        }}>
+                            {title}
+                        </Text>
+                    )
+                })}
+            </View>
+        )
+    }
 }

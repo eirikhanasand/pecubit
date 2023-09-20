@@ -24,7 +24,7 @@ export default function Relevant(): JSX.Element {
                 <View style={RelevantStyles.imageView}>
                     <Text style={RelevantStyles.imageText}>SPORTS</Text>
                     <Text style={RelevantStyles.imageTextOpacity} />
-                    <Image style={RelevantStyles.image} source={images.sports}/>
+                    <Image style={RelevantStyles.image} source={images.sports} />
                 </View>
                 <View style={RelevantStyles.imageView}>
                     <Text style={RelevantStyles.imageText}>GAMBLING</Text>
