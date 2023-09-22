@@ -7,16 +7,12 @@ import Welcome from '@components/landing/welcome'
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import Games from '@components/landing/games'
+import { LandingScreenProps } from '@interfaces'
 import en from "@text/landing.json"
-import Header from '@nav/header'
-import Footer from '@nav/footer'
-import { useState } from 'react'
 
-export default function LandingScreen(): JSX.Element {
+export default function LandingScreen({ navigation, name, login, setName, setLogin }: LandingScreenProps): JSX.Element {
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
-    const [name, setName] = useState("")
-    const [login, setLogin] = useState(false)
 
     return (
         <SafeAreaView style={{
@@ -24,16 +20,19 @@ export default function LandingScreen(): JSX.Element {
                 backgroundColor: theme.content
             }}>
             <CustomStatusBar />
-            <Header name={name} login={login}/>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Welcome setName={setName} login={login} setLogin={setLogin} />
+                <Welcome
+                    name={name}
+                    setName={setName} 
+                    login={login} 
+                    setLogin={setLogin}
+                />
                 <Section title="PLAY">
                     <Text style={{color: theme.contrast}}>{en.play}</Text>
                 </Section>
-                <Games />
-                <Relevant />
+                <Games navigation={navigation} />
+                <Relevant navigation={navigation} />
             </ScrollView>
-            <Footer />
         </SafeAreaView>
     )
 }

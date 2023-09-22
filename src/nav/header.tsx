@@ -13,6 +13,7 @@ export default function LandingHeader({name, login}: LandingHeaderProps): JSX.El
     const theme = isDark ? DarkTheme : LightTheme
     const ageLimit = require("@assets/18.png")
     const logo = require("@assets/pecubitnbg.png")
+    const Name = name.length > 12 ? `${name.slice(0, 12)}...` : name
 
     return (
         <View style={{
@@ -31,7 +32,7 @@ export default function LandingHeader({name, login}: LandingHeaderProps): JSX.El
                         <View style={{flexDirection: "row"}}>
                             <Image style={HeaderStyles.menuIcon} source={logo} />
                             <Text style={{ ...HeaderStyles.logoWithItems, color: theme.contrast }}>
-                                Welcome, {name}!
+                                Welcome, {Name}!
                             </Text>
                         </View>
                         <Image style={HeaderStyles.menuWithItems} source={ageLimit} />

@@ -22,6 +22,7 @@
         ],
         "paths": {
             "@components/*": ["./src/components/*"],
+            "@interfaces": ["./interfaces.ts"],
             "@assets/*": ["./public/assets/*"],
             "@screens/*": ["./src/screens/*"],
             "@themes/*": ["./src/themes/*"],

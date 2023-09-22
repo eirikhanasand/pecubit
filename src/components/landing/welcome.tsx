@@ -4,13 +4,9 @@ import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import { useState } from "react"
 
-type WelcomeProps = {
-    setName: React.Dispatch<React.SetStateAction<string>>
-    login: boolean
-    setLogin: React.Dispatch<React.SetStateAction<boolean>>
-}
-
+// Props for the Signup component
 type SignupProps = {
+    name: string
     signup: boolean
     setSignup: React.Dispatch<React.SetStateAction<boolean>>
     theme: ThemeProps
@@ -18,7 +14,10 @@ type SignupProps = {
     setLogin: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+// Props for the Login component
 type LoginProps = {
+    changeLogin: () => void
+    name: string
     login: boolean
     loginComponent: boolean
     setLogin: React.Dispatch<React.SetStateAction<boolean>>
@@ -26,6 +25,7 @@ type LoginProps = {
     setName: React.Dispatch<React.SetStateAction<string>>
 }
 
+// Props for the default screen
 type DefaultScreenProps = {
     setSignup: React.Dispatch<React.SetStateAction<boolean>>
     changeLogin: () => void
@@ -35,12 +35,17 @@ type DefaultScreenProps = {
     login: boolean
 }
 
-export default function Welcome({setName, login, setLogin}: WelcomeProps) {
+/**
+ * Component rendering the signup and login buttons on the landing screen.
+ * @returns Welcome section
+ */
+export default function Welcome({name, setName, login, setLogin}: WelcomeProps) {
     const [signup, setSignup] = useState(false)
     const [loginComponent, setLoginComponent] = useState(false)
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
 
+    // Changes the visibility state of the login component
     function changeLogin () {
         setLoginComponent(!loginComponent)
     }
@@ -56,6 +61,7 @@ export default function Welcome({setName, login, setLogin}: WelcomeProps) {
                 login={login}
             />
             <Signup
+                name={name}
                 signup={signup}
                 setSignup={setSignup}
                 theme={theme}
@@ -63,6 +69,8 @@ export default function Welcome({setName, login, setLogin}: WelcomeProps) {
                 setLogin={setLogin}
             />
             <Login
+                name={name}
+                changeLogin={changeLogin}
                 loginComponent={loginComponent}
                 setLogin={setLogin} 
                 theme={theme}
@@ -106,7 +114,11 @@ login}: DefaultScreenProps) {
     )
 }
 
-function Signup({signup, setSignup, theme, setName, setLogin}: SignupProps) {
+/**
+ * Component for rendering the signup button in the welcome section
+ * @returns Signup button
+ */
+function Signup({name, signup, setSignup, theme, setName, setLogin}: SignupProps) {
     
     const [password, setPassword] = useState("")
     const [birthdate, setBirthdate] = useState("")
@@ -120,8 +132,12 @@ function Signup({signup, setSignup, theme, setName, setLogin}: SignupProps) {
     }
 
     const handleSignup = () => {
-        setLogin(true)
-        setSignup(false)
+        if (name.length) {
+            setLogin(true)
+            setSignup(false)
+        } else {
+            setSignup(false)
+        }
     }
 
     if (!signup) return <></>
@@ -181,8 +197,12 @@ function Signup({signup, setSignup, theme, setName, setLogin}: SignupProps) {
     )
 }
 
-function Login({loginComponent, setLogin, theme, setName, login}: LoginProps): 
-JSX.Element {
+/**
+ * Component for rendering the login button in the welcome section
+ * @returns login button
+ */
+function Login({name, changeLogin, loginComponent, setLogin, theme, setName, 
+login}: LoginProps): JSX.Element {
 
     const [password, setPassword] = useState("")
 
@@ -192,6 +212,14 @@ JSX.Element {
 
     const inputPassword = (val: string) => {
         setPassword(val)
+    }
+
+    const handleLogin = () => {
+        if (name.length) {
+            setLogin(true)
+        } else {
+            changeLogin()
+        }
     }
 
     if (!loginComponent || login) return <></>
@@ -224,13 +252,13 @@ JSX.Element {
                 selectionColor={theme.green}
             />
             <TouchableOpacity
-                onPress={() => setLogin(true)}>
+                onPress={handleLogin}>
                 <Text style={{
                     ...WelcomeStyles.textTwo, 
                     color: theme.contrast, 
                     backgroundColor: theme.green
                 }}>
-                    LOG IN
+                    LOGIN
                 </Text>
             </TouchableOpacity>
         </View>

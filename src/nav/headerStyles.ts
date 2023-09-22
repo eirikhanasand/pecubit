@@ -29,9 +29,10 @@ export const HeaderStyles = StyleSheet.create({
         justifyContent: 'center'
     },
     logoWithItems: {
-        fontSize: 28,
+        fontSize: 20,
         fontWeight: "700",
-        marginLeft: "6%",
+        alignSelf: "center",
+        marginLeft: "4%",
         justifyContent: 'center'
     },
     // Background of header
