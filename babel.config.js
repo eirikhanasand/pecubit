@@ -3,12 +3,14 @@ module.exports = {
     "plugins": [
         ["module-resolver", {
             "alias": {
-                "@components": "./src/components",
-                "@screens": "./src/screens",
-                "@themes": "./src/themes",
                 "@assets": "./public/assets",
+                "@components": "./src/components",
+                "@interfaces": "./interfaces.ts",
+                "@nav": "./src/nav",
+                "@redux": "./src/redux",
+                "@screens": "./src/screens",
                 "@text": "./public/text",
-                "@nav": "./src/nav"
+                "@themes": "./src/themes",
             }
         }]
     ],
