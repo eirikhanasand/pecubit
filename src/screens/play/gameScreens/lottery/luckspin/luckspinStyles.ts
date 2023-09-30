@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-export const PlayStyles = StyleSheet.create({
+const LuckspinStyles = StyleSheet.create({
     // Content of the play page
     content: {
         flex: 1,
@@ -10,3 +10,5 @@ export const PlayStyles = StyleSheet.create({
         paddingTop: 50,
     }
 })
+
+export default LuckspinStyles

@@ -1,12 +1,9 @@
 import { SafeAreaView, useColorScheme, Text, ScrollView } from 'react-native'
 import { MenuStyles } from "@screens/menu/menuStyles"
-import CustomStatusBar from '@components/defaultComps'
+import CustomStatusBar from '@components/shared/default/defaultComponents'
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import { ScreenProps } from "@interfaces"
-import Header from '@nav/header'
-import Footer from '@nav/footer'
-import { useState } from 'react'
 
 export default function MenuScreen({ navigation }: ScreenProps): JSX.Element {
     const isDark = useColorScheme() === 'dark'

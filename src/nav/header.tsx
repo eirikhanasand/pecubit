@@ -1,7 +1,8 @@
-import { Image, Text, View, useColorScheme } from "react-native"
+import { Image, Text, Touchable, TouchableOpacity, View, useColorScheme } from "react-native"
 import { HeaderStyles } from "@nav/headerStyles"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
+import { useNavigation, useRoute } from "@react-navigation/native"
 
 type LandingHeaderProps = {
     name: string
@@ -13,7 +14,39 @@ export default function LandingHeader({name, login}: LandingHeaderProps): JSX.El
     const theme = isDark ? DarkTheme : LightTheme
     const ageLimit = require("@assets/18.png")
     const logo = require("@assets/pecubitnbg.png")
+    const gobackLogo = require("@assets/goback777.png")
     const Name = name.length > 12 ? `${name.slice(0, 12)}...` : name
+
+    // Get the navigation object
+    const navigation = useNavigation()
+        
+    // Get the route object
+    const route = useRoute()
+
+    // Check if the active screen is nested
+    function isNested(): boolean {
+
+        // All nested routes will be added here as they are implemented
+        switch (route.name) {
+            case "LuckspinScreen": return true
+        }
+
+        return false
+    }
+
+    // Function to go back
+    const goBack = () => {
+        navigation.goBack()
+    }
+
+    // Allow the user to go back if they are inside a nested screen
+    function GobackView() {
+        return (
+            <TouchableOpacity onPress={goBack}>
+                <Image style={HeaderStyles.menuIcon} source={gobackLogo} />
+            </TouchableOpacity>
+        )
+    }
 
     return (
         <View style={{
@@ -21,7 +54,8 @@ export default function LandingHeader({name, login}: LandingHeaderProps): JSX.El
                 backgroundColor: theme.darker
             }}>
             <View style={HeaderStyles.headerRow}>
-                {!name.length || !login
+                {isNested() && <GobackView />}
+                {!name.length || !login || !isNested()
                     ? <>
                         <Text style={{ ...HeaderStyles.logo, color: theme.contrast }}>
                             Pecubit

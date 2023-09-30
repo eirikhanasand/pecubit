@@ -1,6 +1,6 @@
 import { GameStyles } from "@components/landing/gameStyles"
 import { Text, TouchableOpacity, View, useColorScheme } from "react-native"
-import { Card } from "@components/defaultComps"
+import { Card } from "@components/shared/default/defaultComponents"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import { Navigation, ScreenProps } from "@interfaces"
@@ -23,7 +23,7 @@ export default function Games({navigation}: ScreenProps): JSX.Element {
                 navigation={navigation}
             />
             <GameContent 
-                titles={["FLAX", "GAMBLING", "ALL GAMES"]} 
+                titles={["CELEBRITIES", "WEATHER", "ALL GAMES"]} 
                 theme={theme}
                 navigation={navigation}
             />

@@ -1,5 +1,5 @@
 import { StatusBar, Text, useColorScheme, View } from 'react-native'
-import { DefaultStyles } from '@components/defaultCompsStyles'
+import { DefaultStyles } from '@components/shared/default/defaultComponentStyles'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import LightTheme from '@themes/lightTheme.json'
 import type { PropsWithChildren } from 'react'

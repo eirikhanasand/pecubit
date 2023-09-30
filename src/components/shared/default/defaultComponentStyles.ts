@@ -14,6 +14,6 @@ export const DefaultStyles = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         margin: 12,
-        marginTop: 6
+        marginTop: 6,
     }
 })

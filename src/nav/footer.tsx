@@ -1,4 +1,4 @@
-import { FooterProps } from '@interfaces';
+import { FooterProps } from '@interfaces'
 import { RouteProp } from '@react-navigation/native'
 import { View, Image, TouchableOpacity, useColorScheme } from 'react-native'
 import { FooterStyles } from '@nav/footerStyles'

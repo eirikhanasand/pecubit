@@ -1,0 +1,24 @@
+{
+    "games": [
+        {
+            "category": "Lottery",
+            "titles": ["LUCKSPIN", "JACKPOTMAX", "CASINOLUX", "POKERRUSH", "SLOTWIN"]
+        },
+        {
+            "category": "Sport",
+            "titles": ["TURBOJUMP", "QUICKSKATE", "X-TREME", "QUICKSKATE", "ACESPIN", "RUMBLEBALL", "ZOOMSCORE"]
+        },
+        {
+            "category": "Celebrities",
+            "titles": ["FAMEFLASH", "GLAMICON", "MEGASTAR", "SUPERGLOW", "IDOLRUSH"]
+        },
+        {
+            "category": "Weather Predictions",
+            "titles": ["SUNWAVE", "RAINDROP", "HEATBLAZE", "CLOUDRUSH", "HAILSTRIKE", "CYCLONE"]
+        },
+        {
+            "category": "Entertainment",
+            "titles": ["POPBEAT", "SONGBUZZ", "STARSHOW", "GAMEFEST", "PAGEFLIP", "BOOKSPIN", "QUIZBLITZ"]
+        }
+    ]
+}

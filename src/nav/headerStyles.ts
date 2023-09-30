@@ -16,10 +16,9 @@ export const HeaderStyles = StyleSheet.create({
     },
     menuIcon: {
         width: 30,
-        aspectRatio: 1/1,
+        height: 30,
         alignSelf: 'center',
         left: 10,
-        top: -2
     },
     // Text logo in header
     logo: {
