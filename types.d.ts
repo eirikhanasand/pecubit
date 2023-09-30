@@ -10,7 +10,7 @@ type ThemeProps = {
 // Screens available
 type RootStackParamList = {
     LandingScreen: any
-    PlayScreen: any
+    PlayScreen: PlayScreenProps
     StatsScreen: any
     MenuScreen: any
 }
@@ -21,4 +21,14 @@ type WelcomeProps = {
     setName: React.Dispatch<React.SetStateAction<string>>
     login: boolean
     setLogin: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+type PlayScreenProps = {
+    category: string
+}
+
+type ReduxState = {
+    animate: {
+        animate: boolean
+    }
 }
