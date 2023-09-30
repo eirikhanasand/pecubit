@@ -35,3 +35,7 @@ export interface LandingScreenProps extends FooterProps {
     login: boolean
     setLogin: React.Dispatch<React.SetStateAction<boolean>>
 }
+
+export interface PlayScreenProps extends FooterProps {
+    route: RouteProp<RootStackParamList, 'PlayScreen'>
+}
