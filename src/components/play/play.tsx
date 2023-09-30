@@ -8,7 +8,7 @@ import text from "@text/play/play.json"
 import React, { useEffect, useState } from "react"
 import { useFocusEffect } from "@react-navigation/native"
 import { useDispatch, useSelector } from "react-redux"
-import { changeAnimate } from "@redux/slices/animate"
+import { setAnimate } from "../../redux/slices/animate" 
 
 type GameContentProps = {
     titles: string[]
@@ -31,6 +31,7 @@ export default function Play({navigation, category}: PlayComponentProps): JSX.El
     const theme = isDark ? DarkTheme : LightTheme
     const [color, setColor] = useState("")
     const { animate } = useSelector((state: ReduxState) => state.animate)
+    const dispatch = useDispatch()
 
     useFocusEffect(
         React.useCallback(() => {
@@ -41,15 +42,18 @@ export default function Play({navigation, category}: PlayComponentProps): JSX.El
                 setTimeout(() => {
                     setColor("")
                 }, 500)
+                dispatch(setAnimate(false))
             }
         }, [category])
-      )
+    )
 
     useEffect(() => {
-        setColor("#fd8738")
-        setTimeout(() => {
-            setColor("")
-        }, 500)
+        if (animate) {
+            setColor("#fd8738")
+            setTimeout(() => {
+                setColor("")
+            }, 500)
+        }
     }, [category])
 
     return (
@@ -88,7 +92,6 @@ function PlayContent({theme, titles, navigation}: GameContentProps): JSX.Element
 }
 
 function Game({theme, title, navigation}: GameProps) {
-    const dispatch = useDispatch()
 
     function handleClick() {
         let screen = ""
@@ -97,8 +100,7 @@ function Game({theme, title, navigation}: GameProps) {
             case "LUCKSPIN": screen = "LuckspinScreen"
             default: screen = "LuckspinScreen"
         }
-        
-        dispatch(changeAnimate())
+
         navigation.navigate(screen)
     }
 

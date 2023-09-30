@@ -12,14 +12,14 @@ export const AnimateSlice = createSlice({
     // Declares slice reducer
     reducers: {
         // Function to change state
-        changeAnimate: (state) => {
-            state.animate = !state.animate
+        setAnimate: (state, action) => {
+            state.animate = action.payload
         },
     }
 })
 
 // Exports the change function
-export const { changeAnimate } = AnimateSlice.actions
+export const { setAnimate } = AnimateSlice.actions
 
 // Exports the language slice
 export default AnimateSlice.reducer

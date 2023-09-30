@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { persistReducer } from "redux-persist"
-import AnimateReducer from "@redux/slices/animate"
+import AnimateReducer from "./slices/animate"
 import thunk from "redux-thunk"
 
 // Combines all reducers

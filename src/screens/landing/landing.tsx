@@ -9,10 +9,14 @@ import DarkTheme from '@themes/darkTheme.json'
 import Games from '@components/landing/games'
 import { LandingScreenProps } from '@interfaces'
 import en from "@text/landing.json"
+import { useDispatch } from 'react-redux'
+import { setAnimate } from '../../redux/slices/animate'
 
 export default function LandingScreen({ navigation, name, login, setName, setLogin }: LandingScreenProps): JSX.Element {
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
+    const dispatch = useDispatch()
+    dispatch(setAnimate(true))
 
     return (
         <SafeAreaView style={{

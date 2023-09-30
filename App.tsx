@@ -3,10 +3,10 @@ import { NavigationContainer } from "@react-navigation/native"
 import { PersistGate } from "redux-persist/integration/react"
 import { persistStore } from "redux-persist"
 import { Provider } from "react-redux"
-import store from "@redux/store"
+import Store from "./src/redux/store"
 import React from "react"
 
-let persistor = persistStore(store)
+let persistor = persistStore(Store)
 
 /**
  * Main entry point of the application
@@ -15,7 +15,7 @@ let persistor = persistStore(store)
  */
 export default function App(): JSX.Element {
     return (
-        <Provider store={store}>
+        <Provider store={Store}>
             <PersistGate loading={null} persistor={persistor}>
                 <NavigationContainer>
                     <Navigator/>
