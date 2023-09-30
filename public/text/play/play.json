@@ -6,14 +6,14 @@
         },
         {
             "category": "Sport",
-            "titles": ["TURBOJUMP", "QUICKSKATE", "X-TREME", "QUICKSKATE", "ACESPIN", "RUMBLEBALL", "ZOOMSCORE"]
+            "titles": ["TURBOJUMP", "QUICKSKATE", "X-TREME", "ACESPIN", "RUMBLEBALL", "ZOOMSCORE"]
         },
         {
             "category": "Celebrities",
             "titles": ["FAMEFLASH", "GLAMICON", "MEGASTAR", "SUPERGLOW", "IDOLRUSH"]
         },
         {
-            "category": "Weather Predictions",
+            "category": "Weather",
             "titles": ["SUNWAVE", "RAINDROP", "HEATBLAZE", "CLOUDRUSH", "HAILSTRIKE", "CYCLONE"]
         },
         {

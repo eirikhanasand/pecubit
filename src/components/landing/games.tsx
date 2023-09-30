@@ -4,6 +4,8 @@ import { Card } from "@components/shared/default/defaultComponents"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import { Navigation, ScreenProps } from "@interfaces"
+import { useDispatch } from "react-redux"
+import { setAnimate } from "@redux/slices/animate"
 
 type GameContentProps = {
     titles: string[]
@@ -14,6 +16,8 @@ type GameContentProps = {
 export default function Games({navigation}: ScreenProps): JSX.Element {
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
+    const dispatch = useDispatch()
+    dispatch(setAnimate(true))
     
     return (
         <Card title="GAMES">

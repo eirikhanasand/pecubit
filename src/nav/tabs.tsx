@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NavigationContainer, useNavigation } from "@react-navigation/native"
 import LandingScreen from '@screens/landing/landing'
 import StatsScreen from '@screens/stats/stats'
 import { ImageProps, useColorScheme } from "react-native"
@@ -63,8 +64,6 @@ export default function Navigator(): JSX.Element {
         {name: "LuckspinScreen", component: LuckspinScreen }
     ]
 
-    // <Header name={name} login={login}/>
-
     return (
         <Tab.Navigator
             initialRouteName={screens[0].name}
@@ -95,7 +94,7 @@ export default function Navigator(): JSX.Element {
                         }) as TabOptions}
                         name={screen.name}
                         children={(props) => 
-                            <screen.component 
+                            <screen.component
                                 {...props} 
                                 name={name}
                                 setName={setName}

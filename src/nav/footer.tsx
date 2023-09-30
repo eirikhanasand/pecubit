@@ -18,6 +18,7 @@ JSX.Element {
                 if (!options.display) return
 
                 const isFocused = state.index === index
+                
                 // Emitt the normal tab events
                 const onPress = () => {
                     const event = navigation.emit({
@@ -29,7 +30,7 @@ JSX.Element {
                     if (!isFocused && !event.defaultPrevented) {
                         // The `merge: true` option makes sure that the
                         // params inside the tab screen are preserved
-                        navigation.navigate(route.name, {merge: true, hei: true})
+                        navigation.navigate(route.name, {merge: true})
                     }
                 }
 

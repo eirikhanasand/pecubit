@@ -3,8 +3,6 @@ import { HeaderStyles } from "@nav/headerStyles"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import { useNavigation, useRoute } from "@react-navigation/native"
-import { useDispatch, useSelector } from "react-redux"
-import animate, { setAnimate } from "../redux/slices/animate"
 
 type LandingHeaderProps = {
     name: string
@@ -18,8 +16,6 @@ export default function LandingHeader({name, login}: LandingHeaderProps): JSX.El
     const logo = require("@assets/pecubitnbg.png")
     const gobackLogo = require("@assets/goback777.png")
     const Name = name.length > 12 ? `${name.slice(0, 12)}...` : name
-    const animate = useSelector((state: ReduxState) => state.animate)
-    const dispatch = useDispatch()
 
     // Get the navigation object
     const navigation = useNavigation()
@@ -39,13 +35,12 @@ export default function LandingHeader({name, login}: LandingHeaderProps): JSX.El
     }
 
     // Function to go back
-    const goBack = () => {
-        dispatch(setAnimate(false))
+    function goBack(): void {
         navigation.goBack()
     }
 
     // Allow the user to go back if they are inside a nested screen
-    function GobackView() {
+    function GobackView(): JSX.Element {
         return (
             <TouchableOpacity onPress={goBack}>
                 <Image style={HeaderStyles.menuIcon} source={gobackLogo} />

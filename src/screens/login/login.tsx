@@ -10,7 +10,9 @@ import Games from '@components/landing/games'
 import { LandingScreenProps } from '@interfaces'
 import en from "@text/landing.json"
 
-export default function LandingScreen({ navigation, name, login, setName, setLogin }: LandingScreenProps): JSX.Element {
+export default function LandingScreen({ navigation, name, login, setName, 
+setLogin }: LandingScreenProps): JSX.Element {
+    
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
 
