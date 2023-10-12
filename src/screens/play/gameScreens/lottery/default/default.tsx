@@ -2,16 +2,16 @@ import { Section } from "@components/shared/default/defaultComponents"
 import { Text, useColorScheme, SafeAreaView } from "react-native"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
-import LuckspinStyles from "./luckspinStyles"
-import text from "@text/play/luckspin.json"
+import DefaultStyles from "./defaultStyles"
+import text from "@text/play/default.json"
 
-export default function LuckspinScreen() {
+export default function DefaultScreen() {
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
 
     return (
         <SafeAreaView style={{
-            ...LuckspinStyles.content, 
+            ...DefaultStyles.content, 
             backgroundColor: theme.content
         }}>
             <Section title={text.title}>

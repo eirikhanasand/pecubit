@@ -32,3 +32,17 @@ type ReduxState = {
         animate: boolean
     }
 }
+
+type LotteryNumbers = {
+    lotto: number[]
+    pogchamp: number[]
+    megaluck: number[]
+    eveningspin: number[]
+}
+
+type PurchasedGames = {
+    lotto: number[] | null
+    pogchamp: number[] | null
+    megaluck: number[] | null
+    eveningspin: number[] | null
+}

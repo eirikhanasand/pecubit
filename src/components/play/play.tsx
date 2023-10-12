@@ -92,7 +92,7 @@ function Game({theme, title, navigation}: GameProps) {
 
         switch (title) {
             case "LUCKSPIN": screen = "LuckspinScreen"
-            default: screen = "LuckspinScreen"
+            default: screen = "DefaultScreen"
         }
 
         dispatch(setAnimate(false))
