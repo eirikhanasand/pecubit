@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native"
 
-export const DefaultStyles = StyleSheet.create({
+const DefaultStyles = StyleSheet.create({
     sectionTitle: {
         fontSize: 24,
         fontWeight: '700',
@@ -17,3 +17,5 @@ export const DefaultStyles = StyleSheet.create({
         marginTop: 6,
     }
 })
+
+export default DefaultStyles

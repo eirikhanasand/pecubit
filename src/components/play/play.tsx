@@ -1,4 +1,4 @@
-import { PlayStyles } from "@components/play/playStyles"
+import PlayStyles from "@components/play/playStyles"
 import { Text, TouchableOpacity, View, useColorScheme } from "react-native"
 import { Card } from "@components/shared/default/defaultComponents"
 import LightTheme from '@themes/lightTheme.json'
@@ -87,12 +87,14 @@ function PlayContent({theme, titles, navigation}: GameContentProps): JSX.Element
 
 function Game({theme, title, navigation}: GameProps) {
     const dispatch = useDispatch()
+
     function handleClick() {
         let screen = ""
 
         switch (title) {
-            case "LUCKSPIN": screen = "LuckspinScreen"
-            default: screen = "DefaultScreen"
+            case "LUCKSPIN":    screen = "LuckspinScreen";  break
+            case "JACKPOT":     screen = "JackpotScreen";   break
+            default:            screen = "DefaultScreen";   break
         }
 
         dispatch(setAnimate(false))

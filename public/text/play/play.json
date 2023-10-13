@@ -2,7 +2,7 @@
     "games": [
         {
             "category": "Lottery",
-            "titles": ["LUCKSPIN", "JACKPOTMAX", "CASINOLUX", "POKERRUSH", "SLOTWIN"]
+            "titles": ["JACKPOT", "LUCKSPIN", "CASINOLUX", "POKERRUSH", "SLOTWIN"]
         },
         {
             "category": "Sport",

@@ -2,7 +2,7 @@
  * Fetches and returns the lottery winners
  * @returns Lottery data
  */
-export default async function fetchPurchased(): Promise<LotteryNumbers | undefined> {
+export default async function fetchPurchased(): Promise<number[][] | undefined> {
     try {
         const response = await fetch("http://localhost:3000/purchased", {method: 'GET'})
         
@@ -21,7 +21,7 @@ export default async function fetchPurchased(): Promise<LotteryNumbers | undefin
  * Posts purchased lottery numbers
  * @returns Updated values
  */
-export async function postPurchased(purchased: LotteryNumbers): Promise<LotteryNumbers | undefined> {
+export async function postPurchased(purchased: number[][]): Promise<number[][] | undefined> {
     try {
         const response = await fetch("http://localhost:3000/purchased", {
             method: 'POST',
@@ -46,7 +46,7 @@ export async function postPurchased(purchased: LotteryNumbers): Promise<LotteryN
  * Updates purchased lottery numbers
  * @returns Updated values
  */
-export async function putPurchased(purchased: LotteryNumbers): Promise<LotteryNumbers | undefined> {
+export async function putPurchased(purchased: number[][]): Promise<number[][] | undefined> {
     try {
         const response = await fetch("http://localhost:3000/purchased", {
             method: 'PUT',
@@ -71,17 +71,13 @@ export async function putPurchased(purchased: LotteryNumbers): Promise<LotteryNu
  * Deletes the purchased lottery numbers
  * @returns Result
  */
-export async function deletePurchased(): Promise<LotteryNumbers | undefined> {
+export async function deletePurchased(): Promise<boolean> {
     try {
         const response = await fetch("http://localhost:3000/purchased", {method: 'DELETE'})
         
-        if (!response.ok) {
-            throw new Error(`Failed to delete purchased.`)
-        }
-        
-        return response.json()
+        return response.ok ? true : false
     } catch (error) {
         console.log(error)
-        return undefined
+        return false
     }
 }

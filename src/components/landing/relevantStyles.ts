@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native"
 
-export const RelevantStyles = StyleSheet.create({
+const RelevantStyles = StyleSheet.create({
     // Relevant images
     image: {
         width: "100%",
@@ -54,3 +54,5 @@ export const RelevantStyles = StyleSheet.create({
         left: 10,
     },
 })
+
+export default RelevantStyles

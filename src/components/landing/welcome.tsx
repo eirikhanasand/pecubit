@@ -1,5 +1,5 @@
 import { Text, TextInput, TouchableOpacity, View, useColorScheme } from "react-native"
-import { WelcomeStyles } from "./welcomeStyles"
+import WelcomeStyles from "./welcomeStyles"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import { useState } from "react"

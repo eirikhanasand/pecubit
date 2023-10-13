@@ -1,5 +1,5 @@
 import { StatusBar, Text, useColorScheme, View } from 'react-native'
-import { DefaultStyles } from '@components/shared/default/defaultComponentStyles'
+import DefaultStyles from '@components/shared/default/defaultComponentStyles'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import LightTheme from '@themes/lightTheme.json'
 import type { PropsWithChildren } from 'react'
@@ -54,25 +54,16 @@ export function Card({children, color, title}: CardProps): JSX.Element {
 
 export function Section({children, title}: SectionProps): JSX.Element {
     const isDark = useColorScheme() === 'dark'
+    const theme = isDark ? DarkTheme : LightTheme
 
     return (
         <Card>
             <Text
-                style={[
-                    DefaultStyles.sectionTitle,
-                {
-                    color: isDark ? Colors.white : Colors.black,
-                },
-                ]}>
+                style={[DefaultStyles.sectionTitle, {color: theme.contrast}]}>
                 {title}
             </Text>
             <Text
-                style={[
-                    DefaultStyles.sectionDescription,
-                {
-                    color: isDark ? Colors.light : Colors.dark,
-                },
-                ]}>
+                style={[DefaultStyles.sectionDescription, {color: theme.contrast}]}>
                 {children}
             </Text>
         </Card>

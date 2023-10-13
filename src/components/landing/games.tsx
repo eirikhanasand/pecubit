@@ -1,4 +1,4 @@
-import { GameStyles } from "@components/landing/gameStyles"
+import GameStyles from "@components/landing/gameStyles"
 import { Text, TouchableOpacity, View, useColorScheme } from "react-native"
 import { Card } from "@components/shared/default/defaultComponents"
 import LightTheme from '@themes/lightTheme.json'

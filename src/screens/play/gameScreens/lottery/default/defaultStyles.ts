@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
 
 const DefaultStyles = StyleSheet.create({
     // Content of the default page
@@ -7,7 +7,7 @@ const DefaultStyles = StyleSheet.create({
         justifyContent: "center",
     },
     top: {
-        paddingTop: 50,
+        paddingTop: Dimensions.get('window').height / 8,
     }
 })
 

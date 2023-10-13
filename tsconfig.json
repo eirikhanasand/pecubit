@@ -29,6 +29,7 @@
             "@themes/*": ["./src/themes/*"],
             "@text/*": ["./public/text/*"],
             "@nav/*": ["./src/nav/*"],
+            "@utils/*": ["./src/utils/*"],
         }
     },
     "include": [

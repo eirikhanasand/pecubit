@@ -12,6 +12,7 @@ import LuckspinScreen from '@screens/play/gameScreens/lottery/luckspin/luckspin'
 import Header from '@nav/header'
 import React from "react"
 import DefaultScreen from '@screens/play/gameScreens/lottery/default/default'
+import JackpotScreen from '@screens/play/gameScreens/lottery/jackpot/jackpot'
 
 type TabProps = {
     name: string
@@ -63,7 +64,8 @@ export default function Navigator(): JSX.Element {
                 : require("@assets/menu.png")
         },
         { name: "LuckspinScreen", component: LuckspinScreen },
-        { name: "DefaultScreen", component: DefaultScreen }
+        { name: "DefaultScreen", component: DefaultScreen },
+        { name: "JackpotScreen", component: JackpotScreen }
     ]
 
     return (

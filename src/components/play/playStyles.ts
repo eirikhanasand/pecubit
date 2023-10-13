@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native"
 
-export const PlayStyles = StyleSheet.create({
+const PlayStyles = StyleSheet.create({
     // Content of the play view
     content: {
         // Added margin bottom as content was hidden below the bottom menu
@@ -29,3 +29,5 @@ export const PlayStyles = StyleSheet.create({
         width: "49%",
     },
 })
+
+export default PlayStyles
