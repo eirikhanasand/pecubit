@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native"
+import { StyleSheet } from "react-native"
 
 const LuckspinStyles = StyleSheet.create({
     content: {
@@ -6,10 +6,10 @@ const LuckspinStyles = StyleSheet.create({
         justifyContent: "center",
     },
     top: {
-        paddingTop: Dimensions.get('window').height / 8.9,
+        paddingTop: 50,
     },
     viewTwo: {
-        paddingTop: Dimensions.get('window').height / 8.9,
+        paddingTop: 50,
         margin: 12
     },
     viewTwoLogin: {

@@ -6,10 +6,10 @@ const JackpotStyles = StyleSheet.create({
         justifyContent: "center",
     },
     top: {
-        paddingTop: Dimensions.get('window').height / 8.9,
+        paddingTop: 50,
     },
     viewTwo: {
-        paddingTop: Dimensions.get('window').height / 8.9,
+        paddingTop: 50,
         margin: 12
     },
     viewTwoLogin: {

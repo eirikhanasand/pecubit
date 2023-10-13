@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export const PlayStyles = StyleSheet.create({
     // Content of the play page
@@ -7,6 +7,6 @@ export const PlayStyles = StyleSheet.create({
         justifyContent: "center",
     },
     top: {
-        paddingTop: Dimensions.get('window').height / 8.9,
+        paddingTop: 50,
     }
 })

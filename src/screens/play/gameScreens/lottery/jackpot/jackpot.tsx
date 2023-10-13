@@ -221,7 +221,9 @@ function PurchaseSection({rows, setRows, ownedRows}: PurchaseSection) {
 function Ball({ number, theme, index }: Ball): JSX.Element {
     return (
         <View style={{...JackpotStyles.ball, backgroundColor: index > 4 ? 'black' : 'red'}}>
-            <Text style={{...JackpotStyles.ballText, color: theme.content }}>{number}</Text>
+            <Text style={{...JackpotStyles.ballText, color: theme.content }}>
+                {number}
+            </Text>
         </View>
     )
 }

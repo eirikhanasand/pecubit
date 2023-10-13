@@ -1,8 +1,8 @@
-import { Dimensions, StyleSheet } from "react-native"
+import { StyleSheet } from "react-native"
 
 const WelcomeStyles = StyleSheet.create({
     viewTwo: {
-        paddingTop: Dimensions.get('window').height / 8.9,
+        paddingTop: 50,
         margin: 12
     },
     viewTwoLogin: {
