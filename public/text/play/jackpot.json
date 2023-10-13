@@ -6,5 +6,6 @@
     "cancel": "CANCEL",
     "owned": "Owned",
     "remove": "REMOVE ROW",
-    "add": "ADD ROW"
+    "add": "ADD ROW",
+    "loading": "Loading..."
 }

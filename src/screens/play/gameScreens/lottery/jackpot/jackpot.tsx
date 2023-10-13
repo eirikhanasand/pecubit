@@ -125,6 +125,7 @@ function Purchase({numbers, theme, purchase, setPurchase, rows, setRows, ownedRo
 
     return (
         <>
+            {!numbers && <Section title={text.loading} />}
             {numbers && !purchase && <Section title={ownedRows > 0 ? text.owned : text.recent_winners}>
             <View style={JackpotStyles.ballRow}>
                 {numbers.map((row) => <DisplayRow key={row.join()} row={row} />)}
