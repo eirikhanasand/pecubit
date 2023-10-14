@@ -3,94 +3,60 @@ import WelcomeStyles from "./welcomeStyles"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setDisplayLogin, setLogin, setLogout } from "@redux/slices/login"
+import { setName } from "@redux/slices/name"
 
 // Props for the Signup component
 type SignupProps = {
-    name: string
     signup: boolean
     setSignup: React.Dispatch<React.SetStateAction<boolean>>
     theme: ThemeProps
-    setName: React.Dispatch<React.SetStateAction<string>>
-    setLogin: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 // Props for the Login component
 type LoginProps = {
-    changeLogin: () => void
-    name: string
-    login: boolean
-    loginComponent: boolean
-    setLogin: React.Dispatch<React.SetStateAction<boolean>>
     theme: ThemeProps
-    setName: React.Dispatch<React.SetStateAction<string>>
 }
 
 // Props for the default screen
 type DefaultScreenProps = {
     setSignup: React.Dispatch<React.SetStateAction<boolean>>
-    changeLogin: () => void
     theme: ThemeProps
-    loginComponent: boolean
     signup: boolean
-    login: boolean
 }
 
 /**
  * Component rendering the signup and login buttons on the landing screen.
  * @returns Welcome section
  */
-export default function Welcome({name, setName, login, setLogin}: WelcomeProps) {
+export default function Welcome() {
+    const { login } = useSelector((state: ReduxState) => state.login)
+
     const [signup, setSignup] = useState(false)
-    const [loginComponent, setLoginComponent] = useState(false)
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
 
-    // Changes the visibility state of the login component
-    function changeLogin () {
-        setLoginComponent(!loginComponent)
-    }
-
     return(
         <View style={login ? WelcomeStyles.viewTwoLogin : WelcomeStyles.viewTwo}>
-            <DefaultScreen
-                loginComponent={loginComponent}
-                signup={signup}
-                changeLogin={changeLogin} 
-                setSignup={setSignup}
-                theme={theme}
-                login={login}
-            />
-            <Signup
-                name={name}
-                signup={signup}
-                setSignup={setSignup}
-                theme={theme}
-                setName={setName}
-                setLogin={setLogin}
-            />
-            <Login
-                name={name}
-                changeLogin={changeLogin}
-                loginComponent={loginComponent}
-                setLogin={setLogin} 
-                theme={theme}
-                setName={setName}
-                login={login}
-            />
+            <DefaultScreen signup={signup} setSignup={setSignup} theme={theme} />
+            <Signup signup={signup} setSignup={setSignup} theme={theme} />
+            <Login theme={theme} />
         </View>
     )
 }
 
-function DefaultScreen({loginComponent, signup, changeLogin, setSignup, theme, 
-login}: DefaultScreenProps) {
+function DefaultScreen({signup, setSignup, theme}: DefaultScreenProps) {
+    const { login, displayLogin } = useSelector((state: ReduxState) => state.login)
+    const dispatch = useDispatch()
 
-    if (signup || loginComponent || login) return <></>
+    if (signup || displayLogin || login) return <></>
 
     return (
         <View style={WelcomeStyles.spacedRow}>
             <TouchableOpacity 
                 style={WelcomeStyles.textTwoTouchable} 
-                onPress={() => {setSignup(true)}}>
+                onPress={() => setSignup(true)}>
                 <Text style={{
                     ...WelcomeStyles.textTwo, 
                     color: theme.contrast, 
@@ -101,7 +67,7 @@ login}: DefaultScreenProps) {
             </TouchableOpacity>
             <TouchableOpacity 
                 style={WelcomeStyles.textTwoTouchable} 
-                onPress={changeLogin}>
+                onPress={() => dispatch(setDisplayLogin())}>
                 <Text style={{
                     ...WelcomeStyles.textTwo, 
                     color: theme.contrast, 
@@ -118,13 +84,14 @@ login}: DefaultScreenProps) {
  * Component for rendering the signup button in the welcome section
  * @returns Signup button
  */
-function Signup({name, signup, setSignup, theme, setName, setLogin}: SignupProps) {
-    
+function Signup({signup, setSignup, theme}: SignupProps) {
+    const { name } = useSelector((state: ReduxState) => state.name)
+    const dispatch = useDispatch()
     const [password, setPassword] = useState("")
     const [birthdate, setBirthdate] = useState("")
 
     const inputUsername = (val: string) => {
-        setName(val)
+        dispatch(setName(val))
     }
 
     const inputPassword = (val: string) => {
@@ -133,11 +100,10 @@ function Signup({name, signup, setSignup, theme, setName, setLogin}: SignupProps
 
     const handleSignup = () => {
         if (name.length) {
-            setLogin(true)
-            setSignup(false)
-        } else {
-            setSignup(false)
+            setLogin()
         }
+        
+        setSignup(false)
     }
 
     if (!signup) return <></>
@@ -201,13 +167,14 @@ function Signup({name, signup, setSignup, theme, setName, setLogin}: SignupProps
  * Component for rendering the login button in the welcome section
  * @returns login button
  */
-function Login({name, changeLogin, loginComponent, setLogin, theme, setName, 
-login}: LoginProps): JSX.Element {
-
+function Login({theme}: LoginProps): JSX.Element {
+    const { name } = useSelector((state: ReduxState) => state.name)
+    const { login, displayLogin } = useSelector((state: ReduxState) => state.login)
+    const dispatch = useDispatch()
     const [password, setPassword] = useState("")
 
     const inputUsername = (val: string) => {
-        setName(val)
+        dispatch(setName(val))
     }
 
     const inputPassword = (val: string) => {
@@ -216,13 +183,13 @@ login}: LoginProps): JSX.Element {
 
     const handleLogin = () => {
         if (name.length) {
-            setLogin(true)
-        } else {
-            changeLogin()
+            dispatch(setLogin())
         }
+
+        dispatch(setDisplayLogin())
     }
 
-    if (!loginComponent || login) return <></>
+    if (!displayLogin || login) return <></>
 
     return (
         <View>

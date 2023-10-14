@@ -1,15 +1,13 @@
-import { Image, Text, Touchable, TouchableOpacity, View, useColorScheme } from "react-native"
+import { Image, Text, TouchableOpacity, View, useColorScheme } from "react-native"
 import { HeaderStyles } from "@nav/headerStyles"
 import LightTheme from '@themes/lightTheme.json'
 import DarkTheme from '@themes/darkTheme.json'
 import { useNavigation, useRoute } from "@react-navigation/native"
+import { useSelector } from "react-redux"
 
-type LandingHeaderProps = {
-    name: string
-    login: boolean
-}
-
-export default function LandingHeader({name, login}: LandingHeaderProps): JSX.Element {
+export default function LandingHeader(): JSX.Element {
+    const { name } = useSelector((state: ReduxState) => state.name)
+    const { login } = useSelector((state: ReduxState) => state.login)
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
     const ageLimit = require("@assets/18.png")
@@ -29,6 +27,7 @@ export default function LandingHeader({name, login}: LandingHeaderProps): JSX.El
         // All nested routes will be added here as they are implemented
         switch (route.name) {
             case "LuckspinScreen": return true
+            case "JackpotScreen": return true
         }
 
         return false
@@ -55,7 +54,7 @@ export default function LandingHeader({name, login}: LandingHeaderProps): JSX.El
             }}>
             <View style={HeaderStyles.headerRow}>
                 {isNested() && <GobackView />}
-                {!name.length || !login || !isNested()
+                {!name.length || !login
                     ? <>
                         <Text style={{ ...HeaderStyles.logo, color: theme.contrast }}>
                             Pecubit

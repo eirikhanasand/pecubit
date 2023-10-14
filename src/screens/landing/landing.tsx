@@ -10,7 +10,7 @@ import Games from '@components/landing/games'
 import { LandingScreenProps } from '@interfaces'
 import en from "@text/landing.json"
 
-export default function LandingScreen({ navigation, name, login, setName, setLogin }: LandingScreenProps): JSX.Element {
+export default function LandingScreen({ navigation }: LandingScreenProps): JSX.Element {
     const isDark = useColorScheme() === 'dark'
     const theme = isDark ? DarkTheme : LightTheme
 
@@ -21,12 +21,7 @@ export default function LandingScreen({ navigation, name, login, setName, setLog
             }}>
             <CustomStatusBar />
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Welcome
-                    name={name}
-                    setName={setName} 
-                    login={login} 
-                    setLogin={setLogin}
-                />
+                <Welcome />
                 <Section title="PLAY">
                     <Text style={{color: theme.contrast}}>{en.play}</Text>
                 </Section>

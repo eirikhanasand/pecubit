@@ -13,6 +13,7 @@ import Header from '@nav/header'
 import React from "react"
 import DefaultScreen from '@screens/play/gameScreens/lottery/default/default'
 import JackpotScreen from '@screens/play/gameScreens/lottery/jackpot/jackpot'
+import { useSelector } from 'react-redux'
 
 type TabProps = {
     name: string
@@ -24,8 +25,8 @@ type TabProps = {
 const Tab = createBottomTabNavigator()
 
 export default function Navigator(): JSX.Element {
+    const { name } = useSelector((state: ReduxState) => state.name)
     const isDark = useColorScheme() === 'dark'
-    const [name, setName] = useState("")
     const [login, setLogin] = useState(false)
     
     const screens = [
@@ -74,7 +75,7 @@ export default function Navigator(): JSX.Element {
             backBehavior="history"
             screenOptions={({
                 headerShown: true,
-                header: () => <Header name={name} login={login} />,
+                header: () => <Header />,
             })}
             tabBar={props => <Footer 
                 state={props.state} 
@@ -91,21 +92,9 @@ export default function Navigator(): JSX.Element {
                             display: true,
                             focusedIcon: screen.focusedIcon,
                             icon: screen.icon,
-                            name: name,
-                            login: login,
-                            setName: setName,
-                            setLogin: setLogin
                         }) as TabOptions}
                         name={screen.name}
-                        children={(props) => 
-                            <screen.component
-                                {...props} 
-                                name={name}
-                                setName={setName}
-                                login={login} 
-                                setLogin={setLogin} 
-                            />
-                        }
+                        children={(props) => <screen.component {...props} />}
                     />
                 )
             })}

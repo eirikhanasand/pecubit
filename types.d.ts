@@ -31,6 +31,13 @@ type ReduxState = {
     animate: {
         animate: boolean
     }
+    name: {
+        name: string
+    }
+    login: {
+        login: boolean
+        displayLogin: boolean
+    }
 }
 
 type PurchasedGames = {
