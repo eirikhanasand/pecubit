@@ -30,10 +30,6 @@ extends Omit<BottomTabBarProps, 'descriptors'> {
 
 export interface LandingScreenProps extends FooterProps {
     route: RouteProp<RootStackParamList, 'LandingScreen'>
-    name: string
-    setName: React.Dispatch<React.SetStateAction<string>>
-    login: boolean
-    setLogin: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface PlayScreenProps extends FooterProps {
