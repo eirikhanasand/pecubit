@@ -12,7 +12,7 @@ export const AnimateSlice = createSlice({
     // Declares slice reducer
     reducers: {
         // Function to change state
-        setAnimate: (state, action) => {
+        setAnimate(state, action) {
             state.animate = action.payload
         },
     }

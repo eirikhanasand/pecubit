@@ -12,7 +12,7 @@ export const NameSlice = createSlice({
     // Declares slice reducer
     reducers: {
         // Function to change state
-        setName: (state, action) => {
+        setName(state, action) {
             state.name = action.payload
         },
     }
